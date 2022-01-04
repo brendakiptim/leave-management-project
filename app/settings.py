@@ -80,7 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'leavemanagement',
         'USER': 'kiptim',
-        'PASSWORD': 'test',
+        'PASSWORD': 'jerotich',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
