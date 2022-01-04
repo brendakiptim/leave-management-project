@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Leave, Employee
 
 
 def index(request):
-    return render(request,"index.html")
+    employees = Employee.objects.all()
+    print(employees)
+    return render(request,"index.html", {'employees':employees})
 
 

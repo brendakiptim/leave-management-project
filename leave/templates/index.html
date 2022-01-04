@@ -1,9 +1,90 @@
 <div>
   {% extends "base.html"%} {%block content%}
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="text-center">Leave Management System</h3>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="bg-light col-12 p-4 header-img d-flex justify-content-center align-items-center">
+        <h3 class="text-center text-white bg-info p-4 rounded mx-auto col-6 ">Leave Management System</h3>
+          
+        </div>
+      <div class="col-9 justify-content-center">
+     
+        <section class="pt-4">
+          <table class="table table-hover caption-top mb-4">
+            <caption>List of Employees</caption>
+            <thead class="table-dark">
+              <tr class="text-center p-3">
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Leave Days</th>
+
+                <th scope="col">Used </th>
+                <th scope="col">Remaining</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {%for employee in employees%} 
+              <tr class="p-3 text-center" data-bs-toggle="collapse" data-bs-target="#{{employee.first_name}}-{{employee.id}}" aria-expanded="false" aria-controls="{{employee.first_name}}-{{employee.id}}">
+                
+                <td>
+                  {{employee.first_name}}
+                </td>
+                <td>
+                  {{employee.last_name}}
+                </td>
+                <td>
+                  {{employee.leave_days}}
+                </td>  
+                  <td>
+                  {{employee.used_leave_days}}
+                </td>
+                <td>
+                  {{employee.remaining_leave_days}}
+                </td>
+                <td class="position-relative" >
+                  <div  class="accordion-button position-absolute top-0 bottom-0 left-0 bg-white shadow-none right-0 {% if employee.id != 1 %} collapsed {%endif%} " type="button" data-bs-toggle="collapse" data-bs-target="#{{employee.first_name}}-{{employee.id}}" aria-expanded="false" aria-controls="{{employee.first_name}}-{{employee.id}}"></div>
+                
+                </td>
+               
+       
+              </tr>
+              <tr >
+                <td class="border-0" colspan="6">
+                  <div class="accordion accordion-flush " id="accordionExample">
+                    <div class="accordion-item bg-light p-0">
+              
+                    <div id="{{employee.first_name}}-{{employee.id}}" class="{% if employee.id == 1 %} show {%endif%} collapse" aria-labelledby="{{employee.first_name}}-{{employee.id}}" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                     <p>Name: {{employee.first_name}}  {{employee.last_name}}</p>
+
+         <p>Total Leave Days: {{employee.leave_days}}</p>
+         <p>Used Leave Days: {{employee.used_leave_days}}</p>
+
+         <p>Remaining Leave Days: {{employee.remaining_leave_days}}</p>
+
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                </td>
+              </tr>
+          
+
+
+              
+        
+     
+           
+           {%endfor%}
+                        
+       
+            </tbody>
+          
+        
+          
+      </section>
       </div>
     </div>
   </div>
