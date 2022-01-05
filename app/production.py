@@ -1,7 +1,7 @@
 import os
 
 env = os.environ.copy()
-from .base import *
+from .settings import *
 
 
 try:
