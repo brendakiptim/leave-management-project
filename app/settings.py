@@ -84,9 +84,6 @@ DATABASES = {
         'HOST': os.getenv('HOST'),
         'PORT': ''
 }}
-# if os.getenv('ENVIRONMENT') == "production":
-#     db_from_env = dj_database_url.config()
-#     DATABASES['default'].update(db_from_env)
 
 
 
