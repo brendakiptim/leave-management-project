@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'leavemanagement',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':  os.getenv('NAME'),
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
         'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT')
-    }
-}
+        'PORT': ''
+}}
+
 
 
 # Password validation
